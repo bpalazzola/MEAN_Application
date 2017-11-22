@@ -85,8 +85,9 @@ const taskController = {
 app 
 .get('/tasks', taskController.index)
 .post('/tasks', taskController.create)
-
-
+.all("*", (req,res,next) => {
+  res.sendFile(path.resolve("./public/dist/index.html"))
+});
 
 
 // - - - - = = = = Server Listener = = = = - - - - 
